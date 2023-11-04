@@ -1,0 +1,55 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<externalNode i18n.job.component.parameters="Component Parameters:" i18n.job.properties="Properties" i18n.job.values="Values" i18n.mapper.table.for="Mapper table for " i18n.mapper.table.properties="Mapper table Properties" i18n.job.name="Name" i18n.tmap.matching.mode="Matching-mode" i18n.mapper.table.isminimized="isMinimized" i18n.tmap.isreject="isReject" i18n.tmap.isrejectinnnerjoin="isRejectInnerJoin" i18n.tmap.isinnerjoin="isInnerJoin" i18n.tmap.expressionfilter="expressionFilter" i18n.mapper.table.metadata.entries="Metadata Table Entries" i18n.job.type="Type" i18n.mapper.table.expression="Expression" i18n.tmap.isnullable="isNullable" i18n.tmap.constraint.entries="Constraint Table Entries" name="tMap_1" preview="pictures/_-WH94HtGEe6DX_RKdHy-3g-tMap_1-PREVIEW.bmp">
+  <parameters>
+    <column name="tStatCatcher Statistics">false</column>
+    <column name="Mapping links display as:">AUTO</column>
+    <column name="Temp data directory path:"></column>
+    <column name="Max buffer size (nb of rows):">2000000</column>
+    <column name="Ignore trailing zeros for BigDecimal">true</column>
+    <column name="Show Information">false</column>
+    <column name="Comment"><![CDATA[]]></column>
+    <column name="Use an existing validation rule">false</column>
+  </parameters>
+  <mapperTable type="input">
+    <table name="row5" matching-mode="UNIQUE_MATCH" lookup-mode="LOAD_ONCE" isMinimized="false" isReject="false" isRejectInnerJoin="false" isInnerJoin="false" isPersistent="false" expressionFilter="null" activateExpressionFilter="false" activateCondensedTool="false" activateColumnNameFilter="false" columnNameFilter="null">
+      <metadataTableEntries>
+        <entry name="product_id" type="Integer" expression="" isNullable="true"/>
+        <entry name="geography_id" type="Integer" expression="" isNullable="true"/>
+        <entry name="time_id" type="Integer" expression="" isNullable="true"/>
+        <entry name="SalesAmt" type="Integer" expression="" isNullable="true"/>
+      </metadataTableEntries>
+    </table>
+    <table name="row6" matching-mode="UNIQUE_MATCH" lookup-mode="LOAD_ONCE" isMinimized="false" isReject="false" isRejectInnerJoin="false" isInnerJoin="false" isPersistent="false" expressionFilter="null" activateExpressionFilter="false" activateCondensedTool="false" activateColumnNameFilter="false" columnNameFilter="null">
+      <metadataTableEntries>
+        <entry name="time_id" type="Integer" expression="row5.time_id " isNullable="true"/>
+        <entry name="time_quarter" type="String" expression="" isNullable="true"/>
+      </metadataTableEntries>
+    </table>
+    <table name="row7" matching-mode="UNIQUE_MATCH" lookup-mode="LOAD_ONCE" isMinimized="false" isReject="false" isRejectInnerJoin="false" isInnerJoin="false" isPersistent="false" expressionFilter="null" activateExpressionFilter="false" activateCondensedTool="false" activateColumnNameFilter="false" columnNameFilter="null">
+      <metadataTableEntries>
+        <entry name="product_id" type="Integer" expression="row5.product_id " isNullable="true"/>
+        <entry name="product" type="String" expression="" isNullable="true"/>
+      </metadataTableEntries>
+    </table>
+    <table name="row8" matching-mode="UNIQUE_MATCH" lookup-mode="LOAD_ONCE" isMinimized="false" isReject="false" isRejectInnerJoin="false" isInnerJoin="false" isPersistent="false" expressionFilter="null" activateExpressionFilter="false" activateCondensedTool="false" activateColumnNameFilter="false" columnNameFilter="null">
+      <metadataTableEntries>
+        <entry name="geography_id" type="Integer" expression="row5.geography_id " isNullable="true"/>
+        <entry name="geography" type="String" expression="" isNullable="true"/>
+      </metadataTableEntries>
+    </table>
+  </mapperTable>
+  <mapperTable type="output">
+    <table name="out1" isMinimized="false" isReject="false" isRejectInnerJoin="false" isInnerJoin="false" isPersistent="false" expressionFilter="null" activateExpressionFilter="true" activateCondensedTool="false" activateColumnNameFilter="false" columnNameFilter="">
+      <metadataTableEntries>
+        <entry name="geography" type="String" expression="(row8.geography.equals(&quot;Asia&quot;)) ? row8.geography = &quot;Missouri&quot;: (row8.geography.equals(&quot;USA&quot;)) ?  row8.geography = &quot;Kansas&quot;: (row8.geography.equals(&quot;Europe&quot;)) ? row8.geography = &quot;Arkansas&quot; : (row8.geography.equals(&quot;Australia&quot;)) ? row8.geography = &quot;Oklahoma&quot; : row8.geography " isNullable="true"/>
+        <entry name="product" type="String" expression="row7.product.toUpperCase() " isNullable="true"/>
+        <entry name="time_quarter" type="String" expression="row6.time_quarter" isNullable="true"/>
+        <entry name="SalesAmt" type="Integer" expression="row5.SalesAmt " isNullable="true"/>
+      </metadataTableEntries>
+    </table>
+  </mapperTable>
+  <mapperTable type="var">
+    <table name="Var" isMinimized="true" isReject="false" isRejectInnerJoin="false" isInnerJoin="false" isPersistent="false" expressionFilter="null" activateExpressionFilter="false" activateCondensedTool="false" activateColumnNameFilter="false" columnNameFilter="null"/>
+  </mapperTable>
+</externalNode>
